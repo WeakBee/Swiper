@@ -164,6 +164,9 @@
     :root {
         --lebar: 372px;
     }
+    .container-content{
+        height: 700px;
+    }
 }
 
 @media (max-width: 1199.98px) {
