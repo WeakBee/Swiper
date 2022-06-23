@@ -1,24 +1,31 @@
 let numb = document.querySelector(".swiper-container").children.length;
 let getShow = [];
+let getCShow = [];
 for (i=1; i<= numb; i++){
   getShow[i] = document.getElementsByClassName("show"+i);
+  getCShow[i] = document.getElementsByClassName("cshow"+i);
 }
 
 function hapussemua(){
   for (i=1; i<= numb; i++){
     for(element of getShow[i]){
-        element.classList.remove("show"+i)
+      element.classList.remove("show"+i)
     }
+    for(element of getCShow[i]){
+      element.classList.remove("cshow"+i)
+  }
   }
 }
 
 let swiperSlide = [];
-let ss = [];
+let contentSwipper = [];
 let show = [];
+let cshow = [];
 for (i = 1; i <= numb;i++){
-  ss[i] = ".ss"+i;
   show[i] = "show"+i;
-  swiperSlide[i] = document.querySelector(ss[i]);
+  cshow[i] = "cshow"+i;
+  swiperSlide[i] = document.querySelector(".ss"+i);
+  contentSwipper[i] = document.querySelector(".cs"+i);
 }
 
 let canGo = true;
@@ -36,55 +43,26 @@ let delayleft = function () {
 }
 
 function fungsileft(){
-  if (swiperSlide[1].classList.contains(show[1])){
+  for (i=0; i < numb; i++){
+    let f = 1 + i;
+    let d = numb+1;
+    let e = d - (i);
+    if (e == d){
+      e = e-numb;
+    }
+    if (swiperSlide[1].classList.contains(show[f])){
     hapussemua();
-    swiperSlide[1].classList.add(show[6]);
-    swiperSlide[2].classList.add(show[1]);
-    swiperSlide[3].classList.add(show[2]);
-    swiperSlide[4].classList.add(show[3]);
-    swiperSlide[5].classList.add(show[4]);
-    swiperSlide[6].classList.add(show[5]);
-  } else if (swiperSlide[1].classList.contains(show[2])){
-    hapussemua();
-    swiperSlide[1].classList.add(show[1]);
-    swiperSlide[2].classList.add(show[2]);
-    swiperSlide[3].classList.add(show[3]);
-    swiperSlide[4].classList.add(show[4]);
-    swiperSlide[5].classList.add(show[5]);
-    swiperSlide[6].classList.add(show[6]);
-  } else if (swiperSlide[1].classList.contains(show[3])){
-    hapussemua();
-    swiperSlide[1].classList.add(show[2]);
-    swiperSlide[2].classList.add(show[3]);
-    swiperSlide[3].classList.add(show[4]);
-    swiperSlide[4].classList.add(show[5]);
-    swiperSlide[5].classList.add(show[6]);
-    swiperSlide[6].classList.add(show[1]);
-  } else if (swiperSlide[1].classList.contains(show[4])){
-    hapussemua();
-    swiperSlide[1].classList.add(show[3]);
-    swiperSlide[2].classList.add(show[4]);
-    swiperSlide[3].classList.add(show[5]);
-    swiperSlide[4].classList.add(show[6]);
-    swiperSlide[5].classList.add(show[1]);
-    swiperSlide[6].classList.add(show[2]);
-  } else if (swiperSlide[1].classList.contains(show[5])){
-    hapussemua();
-    swiperSlide[1].classList.add(show[4]);
-    swiperSlide[2].classList.add(show[5]);
-    swiperSlide[3].classList.add(show[6]);
-    swiperSlide[4].classList.add(show[1]);
-    swiperSlide[5].classList.add(show[2]);
-    swiperSlide[6].classList.add(show[3]);
-  } else if (swiperSlide[1].classList.contains(show[6])){
-    hapussemua();
-    swiperSlide[1].classList.add(show[5]);
-    swiperSlide[2].classList.add(show[6]);
-    swiperSlide[3].classList.add(show[1]);
-    swiperSlide[4].classList.add(show[2]);
-    swiperSlide[5].classList.add(show[3]);
-    swiperSlide[6].classList.add(show[4]);
-  } 
+    for (i=1; i<=numb;i++){
+      let c = numb - e;
+      let a = i + c;
+      if (a > numb){
+        a = a - numb;
+      }
+      swiperSlide[i].classList.add(show[a]);
+      contentSwipper[i].classList.add(cshow[a]);
+    }
+    }
+  }
 }
 
 function left() {
@@ -103,79 +81,56 @@ let delayright = function () {
 }
 
 function fungsiright(){
-  if (swiperSlide[1].classList.contains(show[1])){
-    hapussemua();
-    swiperSlide[1].classList.add(show[2]);
-    swiperSlide[2].classList.add(show[3]);
-    swiperSlide[3].classList.add(show[4]);
-    swiperSlide[4].classList.add(show[5]);
-    swiperSlide[5].classList.add(show[6]);
-    swiperSlide[6].classList.add(show[1]);
-  } else if (swiperSlide[1].classList.contains(show[2])){
-    hapussemua();
-    swiperSlide[1].classList.add(show[3]);
-    swiperSlide[2].classList.add(show[4]);
-    swiperSlide[3].classList.add(show[5]);
-    swiperSlide[4].classList.add(show[6]);
-    swiperSlide[5].classList.add(show[1]);
-    swiperSlide[6].classList.add(show[2]);
-  } else if (swiperSlide[1].classList.contains(show[3])){
-    hapussemua();
-    swiperSlide[1].classList.add(show[4]);
-    swiperSlide[2].classList.add(show[5]);
-    swiperSlide[3].classList.add(show[6]);
-    swiperSlide[4].classList.add(show[1]);
-    swiperSlide[5].classList.add(show[2]);
-    swiperSlide[6].classList.add(show[3]);
-  } else if (swiperSlide[1].classList.contains(show[4])){
-    hapussemua();
-    swiperSlide[1].classList.add(show[5]);
-    swiperSlide[2].classList.add(show[6]);
-    swiperSlide[3].classList.add(show[1]);
-    swiperSlide[4].classList.add(show[2]);
-    swiperSlide[5].classList.add(show[3]);
-    swiperSlide[6].classList.add(show[4]);
-  } else if (swiperSlide[1].classList.contains(show[5])){
-    hapussemua();
-    swiperSlide[1].classList.add(show[6]);
-    swiperSlide[2].classList.add(show[1]);
-    swiperSlide[3].classList.add(show[2]);
-    swiperSlide[4].classList.add(show[3]);
-    swiperSlide[5].classList.add(show[4]);
-    swiperSlide[6].classList.add(show[5]);
-  } else if (swiperSlide[1].classList.contains(show[6])){
-    hapussemua();
-    swiperSlide[1].classList.add(show[1]);
-    swiperSlide[2].classList.add(show[2]);
-    swiperSlide[3].classList.add(show[3]);
-    swiperSlide[4].classList.add(show[4]);
-    swiperSlide[5].classList.add(show[5]);
-    swiperSlide[6].classList.add(show[6]);
-  } 
+  for (i=1; i <= numb; i++){
+    let d = i;
+    if (swiperSlide[1].classList.contains(show[d])){
+      hapussemua();
+      for (i=1; i<=numb;i++){
+        let b = i + d;
+        if (b > numb){
+          c = b - numb;
+        } else {
+          c = b;
+        }
+        swiperSlide[i].classList.add(show[c]);
+        contentSwipper[i].classList.add(cshow[c]);
+      }
+    }
+  }
 }
 
 function right() {
   delayright();
 };
 
-// else if (swiperSlide[1].classList.contains(show[2])){
-//   for (i = 1;i <= numb; i++){
+// ONCLICK
+let fungsiklik = [];
+for (i=1; i<=numb; i++){
+  fungsiklik = function (e) {
+    for(i=1; i<= numb; i++){  
+      let a = i + e;
+      if (a > numb){
+        b = a - numb;
+      } else {
+        b = a;
+      }
+      swiperSlide[i].classList.add(show[b]);
+      contentSwipper[i].classList.add(cshow[b]);
+    }
+  }
+}
+function klik(e){
+  hapussemua();
+  for (i=1; i<=numb; i++){
+    let x = e - 2;
+    let klikvar = x;
+    if (e == 1){
+      fungsiklik(1);
+    } else if (e == 2) {
+      fungsiklik(0);
+    } else if (e == e) {
+      fungsiklik(numb - klikvar);
+    } 
+  }
+}
 
-//   }
-// } else if (swiperSlide[1].classList.contains(show[3])){
-//   for (i = 1;i <= numb; i++){
-
-//   }
-// } else if (swiperSlide[1].classList.contains(show[4])){
-//   for (i = 1;i <= numb; i++){
-
-//   }
-// } else if (swiperSlide[1].classList.contains(show[5])){
-//   for (i = 1;i <= numb; i++){
-
-//   }
-// } else if (swiperSlide[1].classList.contains(show[6])){
-//   for (i = 1;i <= numb; i++){
-
-//   }
-// }
