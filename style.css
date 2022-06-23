@@ -19,6 +19,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    user-select: none;
 }
 .arrow:hover{
     background-color: orange;
@@ -49,7 +50,7 @@
     justify-content: center;
     border-radius: 10px 10px 0 0;
     background-color: rgba(0, 0, 0, 0.03);
-    box-shadow: 10px 15px 15px rgba(0, 0, 0, 0.11);
+    box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.041);
     transition: 0.5s;
 }
 .show1{
