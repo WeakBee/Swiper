@@ -95,7 +95,7 @@ let delayright = function () {
   if (canGo) {
       canGo = false;
       // do whatever you want
-      fungsileft();
+      fungsiright();
       setTimeout(function () {
           canGo = true;
       }, delay)
