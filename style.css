@@ -62,12 +62,12 @@
     opacity: 1;
 }
 .show3{
+    background-color: orange;
+    color: white;
     transform: translateX(calc(var(--lebar)));
     opacity: 1;
 }
 .show4{
-    background-color: orange;
-    color: white;
     transform: translateX(calc(var(--lebar)*2));
     opacity: 1;
 }
