@@ -103,7 +103,10 @@ function right() {
   delayright();
 };
 
-// ONCLICK
+if (window.matchMedia("(max-width: 992px)").matches) {
+
+} else {
+  // ONCLICK
 let fungsiklik = [];
 for (i=1; i<=numb; i++){
   fungsiklik = function (e) {
@@ -133,4 +136,4 @@ function klik(e){
     } 
   }
 }
-
+}
